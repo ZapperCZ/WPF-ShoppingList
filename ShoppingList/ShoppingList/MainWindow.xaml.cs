@@ -35,5 +35,9 @@ namespace ShoppingList
             ShoppingItems.Add(newItem);
             senderButton.Margin = new Thickness(senderButton.Margin.Left, senderButton.Margin.Top+30,0,0);
         }
+        public void RemoveItem(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
