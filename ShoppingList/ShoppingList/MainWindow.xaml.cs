@@ -37,7 +37,22 @@ namespace ShoppingList
         }
         public void RemoveItem(object sender, RoutedEventArgs e)
         {
-
+            Button senderButton = (Button)sender;
+            bool itemRemoved = false;
+            ShoppingItem itemToRemove = null;
+            foreach(ShoppingItem shoppingItem in ShoppingItems)
+            {
+                if(shoppingItem.Button_RemoveItem == senderButton)
+                {
+                    shoppingItem.RemoveControls();
+                    itemToRemove = shoppingItem;
+                    itemRemoved = true;
+                    Button_AddItem.Margin = new Thickness(Button_AddItem.Margin.Left, Button_AddItem.Margin.Top - 30, 0, 0);
+                }
+                if (itemRemoved)
+                    shoppingItem.MoveControls();
+            }
+            ShoppingItems.Remove(itemToRemove);
         }
     }
 }

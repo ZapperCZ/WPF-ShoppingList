@@ -17,9 +17,9 @@ namespace ShoppingList
 {
     class ShoppingItem
     {
-        TextBox Text_ItemDetails;
-        CheckBox CheckBox_ItemBought;
-        Button Button_RemoveItem;
+        public TextBox Text_ItemDetails;
+        public CheckBox CheckBox_ItemBought;
+        public Button Button_RemoveItem;
 
         public ShoppingItem()
         {
@@ -52,11 +52,28 @@ namespace ShoppingList
             Button_RemoveItem.Width = 70;
             Button_RemoveItem.Content = "Smazat";
             Button_RemoveItem.Margin = new Thickness(tempButton.Margin.Left + 660, tempButton.Margin.Top, 0, 0);
+            Button_RemoveItem.Click += new RoutedEventHandler(mainWindow.RemoveItem);
 
 
             mainWindow.RootGrid.Children.Add(Text_ItemDetails);
             mainWindow.RootGrid.Children.Add(CheckBox_ItemBought);
             mainWindow.RootGrid.Children.Add(Button_RemoveItem);
+        }
+        public void RemoveControls()
+        {
+            var mainWindow = Application.Current.Windows
+            .Cast<Window>()
+            .FirstOrDefault(window => window is MainWindow) as MainWindow;
+
+            mainWindow.RootGrid.Children.Remove(Text_ItemDetails);
+            mainWindow.RootGrid.Children.Remove(CheckBox_ItemBought);
+            mainWindow.RootGrid.Children.Remove(Button_RemoveItem);
+        }
+        public void MoveControls()
+        {
+            Text_ItemDetails.Margin = new Thickness(Text_ItemDetails.Margin.Left, Text_ItemDetails.Margin.Top-30, 0, 0);
+            CheckBox_ItemBought.Margin = new Thickness(CheckBox_ItemBought.Margin.Left, CheckBox_ItemBought.Margin.Top - 30, 0, 0);
+            Button_RemoveItem.Margin = new Thickness(Button_RemoveItem.Margin.Left, Button_RemoveItem.Margin.Top - 30, 0, 0);
         }
     }
 }
