@@ -18,11 +18,22 @@ namespace ShoppingList
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+        List<ShoppingItem> ShoppingItems;
         public MainWindow()
         {
             InitializeComponent();
+
+            ShoppingItems = new List<ShoppingItem>();
+        }
+        public void AddShoppingItem(object sender, RoutedEventArgs e)
+        {
+            Button senderButton = (Button)sender;
+            ShoppingItem newItem = new ShoppingItem();
+            ShoppingItems.Add(newItem);
+            senderButton.Margin = new Thickness(senderButton.Margin.Left, senderButton.Margin.Top+30,0,0);
         }
     }
 }
