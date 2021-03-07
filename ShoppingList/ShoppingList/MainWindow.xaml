@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShoppingList"
         mc:Ignorable="d"
-        Title="Shopping List" Height="450" Width="800">
+        Title="Shopping List" Height="450" Width="712.4" ResizeMode="NoResize">
     <Grid>
-        
+        <Label Content="Nakup si:" HorizontalAlignment="Left" Margin="71,25,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label Content="Hotovo" HorizontalAlignment="Left" Margin="540,25,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="-0.546,0.461"/>
+        <Button Content="+" Padding="0" HorizontalAlignment="Left" Margin="19,59,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="22" Height="22"/>
+
     </Grid>
 </Window>
